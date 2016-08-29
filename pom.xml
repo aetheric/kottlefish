@@ -22,6 +22,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+
+		<dependency>
 			<scope>test</scope>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -69,5 +75,46 @@
 		</plugins>
 
 	</build>
+
+	<profiles>
+
+		<profile>
+			<id>proguard</id>
+			<build>
+				<plugins>
+
+					<plugin>
+						<groupId>com.github.wvengen</groupId>
+						<artifactId>proguard-maven-plugin</artifactId>
+						<version>2.0.13</version>
+						<configuration>
+							<obfuscate>false</obfuscate>
+							<addMavenDescriptor>true</addMavenDescriptor>
+							<injar>${project.build.finalName}.jar</injar>
+							<outjar>${project.build.finalName}.min.jar</outjar>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<includeDependencyInjar>true</includeDependencyInjar>
+							<libs>
+								<lib>${java.home}/lib/rt.jar</lib>
+								<lib>${java.home}/lib/jsse.jar</lib>
+							</libs>
+						</configuration>
+						<executions>
+
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>proguard</goal>
+								</goals>
+							</execution>
+
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
 
 </project>
