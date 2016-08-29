@@ -1,0 +1,28 @@
+= Kottlefish
+:author: Peter Cummuskey
+:email: peterc@aetheric.co.nz
+:toc:
+:toc-placement: macro
+
+image:https://travis-ci.org/aetheric/kottlefish.svg?branch=master["Build Status", link="https://travis-ci.org/aetheric/kottlefish"]
+image:https://img.shields.io/github/release/aetheric/kottlefish.svg?maxAge=2592000&label=latest%20release["Latest Release", link="https://github.com/aetheric/kottlefish/release/latest"]
+
+A set of Kotlin utilities and extensions
+
+toc::[]
+
+== Usage
+
+Just add the maven coordinates to your dependency management configuration. For maven it'd be:
+
+```xml
+<dependency>
+	<groupId>nz.co.aetheric</groupId>
+	<artifactId>kottlefish</artifactId>
+	<version>${version.kottlefish}</version>
+</dependency>
+```
+
+== Contributing
+
+Just fork the repo, make whatever change you like, and submit a pull request. You should be able to figure out my formatting preferences from the existing code.
